@@ -1,10 +1,14 @@
 import './employees-list-item.css'
 
-const EmployeesListItem = () => {
+const EmployeesListItem = ({name, salary, increase}) => {
+    
+    /* Adding a class to an object based on 'increase' property. */
+    const classes = "list-group-item d-flex justify-content-between";
+    const classesWithIncrease = increase === true ? classes + ' increase' : classes;
     return (
-        <li className="list-group-item d-flex justify-content-between">
-            <span className="list-group-item-label">John Smith</span>
-            <input type="text" className="list-group-item-input" defaultValue="1000$"/>
+        <li className={classesWithIncrease}> 
+            <span className="list-group-item-label">{name}</span>
+            <input type="text" className="list-group-item-input" defaultValue={salary + '$'}/>
             <div className='d-flex justify-content-center align-items-center'>
                 <button type="button"
                     className="btn-cookie btn-sm ">

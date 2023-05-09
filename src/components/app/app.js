@@ -6,6 +6,13 @@ import EmployeesAddForm from '../employees-add-form/employees-add-form';
 import './app.css';
 
 function App () {
+    
+    /* Creating a database of employees as an array of objects. */
+    const data = [ 
+        {name: 'Rybak D.', salary: 800, increase: true, id: 1},
+        {name: 'Patsuk D.', salary: 3000, increase: false, id: 2},
+        {name: 'Marta L.', salary: 4000, increase: true, id: 3}
+    ];
     return (
         <div className="app">
             <AppInfo/>
@@ -15,7 +22,7 @@ function App () {
                 <AppFilter/>
             </div>
             
-            <EmployeesList/>
+            <EmployeesList data={data}/>
             <EmployeesAddForm/>
         </div>
     )
