@@ -45,25 +45,34 @@ class App extends Component {
     }
 
     onToggleIncrease = (id) => {
-        this.setState(({data}) => {
-            const index = data.findIndex(elem => elem.id === id);
-
-            const old = data[index];
-            const newObj = {...old, increase: !old.increase};
-            const newArr = [...data.slice(0, index), newObj, ...data.slice(index + 1)] 
-            return {data: newArr}
-        })
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if( item.id === id) {
+                    return {...item, increase: !item.increase}
+                }
+                return item;
+            })
+        }))
     }
 
     onToggleRise = (id) => {
-        console.log(`Rise this: ${id}`)
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if( item.id === id) {
+                    return {...item, rise: !item.rise}
+                }
+                return item;
+            })
+        }))
     }
 
     render(){
         return (
             <div className="app">
-                <AppInfo/>
-    
+                <AppInfo
+                number={this.state.data.length}
+                awarded={this.state.data.filter(item => item.increase).length}/>
+                
                 <div className="search-panel">
                     <SearchPanel/>
                     <AppFilter/>
