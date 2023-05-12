@@ -1,22 +1,33 @@
+
 import './employees-list-item.css'
 
-const EmployeesListItem = ({name, salary, increase}) => {
-    
-    /* Adding a class to an object based on 'increase' property. */
-    const classes = "list-group-item d-flex justify-content-between";
-    const classesWithIncrease = increase === true ? classes + ' increase' : classes;
+const EmployeesListItem = (props) => {
+
+    const {name, salary, onDelete, onToggleIncrease,onToggleRise, increase, rise} = props;
+
+
+    let classes = "list-group-item d-flex justify-content-between";
+    if (increase) {
+        classes += ' increase';
+    }
+    if (rise) {
+        classes += ' like';
+    }
+
     return (
-        <li className={classesWithIncrease}> 
-            <span className="list-group-item-label">{name}</span>
+        <li className={classes}> 
+            <span onClick={onToggleRise} className="list-group-item-label">{name}</span>
             <input type="text" className="list-group-item-input" defaultValue={salary + '$'}/>
             <div className='d-flex justify-content-center align-items-center'>
                 <button type="button"
-                    className="btn-cookie btn-sm ">
+                    className="btn-cookie btn-sm " 
+                    onClick={onToggleIncrease}>
                     <i className="fas fa-cookie"></i>
                 </button>
 
                 <button type="button"
-                        className="btn-trash btn-sm ">
+                        className="btn-trash btn-sm "
+                        onClick={onDelete}>
                     <i className="fas fa-trash"></i>
                 </button>
                 <i className="fas fa-star"></i>
@@ -24,5 +35,8 @@ const EmployeesListItem = ({name, salary, increase}) => {
         </li>
     );
 }
+    
+
+
 
 export default EmployeesListItem;
