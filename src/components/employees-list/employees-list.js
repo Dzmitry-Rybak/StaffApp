@@ -1,7 +1,7 @@
 import EmployeesListItem from '../employees-list-item/employees-list-item';
 import './employees-list.css';
 
-const EmployeesList = ({data, onDelete, onToggleIncrease, onToggleRise}) => {
+const EmployeesList = ({data, onDelete, onToggleProp}) => {
     
     /* Iterate over each object in the array (employee data) and mark the data as props of the component. */
     const elements = data.map(item => {
@@ -14,8 +14,7 @@ const EmployeesList = ({data, onDelete, onToggleIncrease, onToggleRise}) => {
                 increase={item.increase}
                 rise = {item.rise}
                 onDelete={() => onDelete(item.id)}
-                onToggleIncrease={() => onToggleIncrease(item.id)}
-                onToggleRise ={() => onToggleRise(item.id)}/> /* key={id} {...itemProps} */
+                onToggleProp={(e) => onToggleProp(item.id, e.currentTarget.getAttribute('data-toggle'))}/> /* key={id} {...itemProps} */
         );
     })
 

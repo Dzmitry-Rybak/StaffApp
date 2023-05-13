@@ -13,17 +13,21 @@ class EmployeesAddForm extends Component{
 
     onValueChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value  /* A way to assign an object property when it nested */
+            [e.target.name]: e.target.value
         })
     }
     
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.onAdd(this.state.name, this.state.salary);
-        this.setState({
-            name: '',
-            salary: ''
-        })
+        const name = this.state.name;
+        const salary = this.state.salary;
+        if(name.length >= 2 && salary > 0){
+            this.props.onAdd(`${name.charAt(0).toUpperCase()}${name.slice(1)}`, salary);
+            this.setState({
+                name: '',
+                salary: ''
+            })
+        }
     }
 
     render() {
