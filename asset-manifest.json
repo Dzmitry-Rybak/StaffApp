@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dzmitry-rybak.github.io/static/css/main.69bfc797.css",
+    "main.js": "/dzmitry-rybak.github.io/static/js/main.2d1c11d0.js",
+    "index.html": "/dzmitry-rybak.github.io/index.html",
+    "main.69bfc797.css.map": "/dzmitry-rybak.github.io/static/css/main.69bfc797.css.map",
+    "main.2d1c11d0.js.map": "/dzmitry-rybak.github.io/static/js/main.2d1c11d0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69bfc797.css",
+    "static/js/main.2d1c11d0.js"
+  ]
+}
